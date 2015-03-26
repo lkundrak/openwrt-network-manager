@@ -1,7 +1,19 @@
+From f0b571549c02209b4a7a10bbb63887f4eb1f3103 Mon Sep 17 00:00:00 2001
+From: Lubomir Rintel <lkundrak@v3.sk>
+Date: Wed, 25 Mar 2015 14:53:22 +0100
+Subject: [PATCH 2/2] 003-disable-tests-docs-examples.patch
+
+---
+ configure.ac     | 13 -------------
+ dbus/Makefile.am |  2 +-
+ 2 files changed, 1 insertion(+), 14 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index f3ec6c4..d7d8cfc 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -815,18 +815,7 @@ AC_DEFINE_UNQUOTED(DBUS_TEST_SOCKET_DIR,
- AC_OUTPUT([
+@@ -286,20 +286,7 @@ GTK_DOC_CHECK([1.14], [--flavour no-tmpl])
+ AC_CONFIG_FILES([
  Makefile
  m4/Makefile
 -doc/Makefile
@@ -16,9 +28,13 @@
 -test/data/valid-service-files/debug-glib.service
 -test/data/valid-service-files/debug-echo.service
 -test/data/valid-service-files/interfaces-test.service
+-test/lib/Makefile
+-test/manual/Makefile
  tools/Makefile
  dbus-glib-1.pc
  dbus-glib-1-uninstalled.pc
+diff --git a/dbus/Makefile.am b/dbus/Makefile.am
+index 6d885f9..8bc102d 100644
 --- a/dbus/Makefile.am
 +++ b/dbus/Makefile.am
 @@ -1,4 +1,4 @@
@@ -27,3 +43,6 @@
  
  INCLUDES = \
  	-I$(top_srcdir)						\
+-- 
+2.1.0
+

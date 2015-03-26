@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dbus-glib
-PKG_VERSION:=0.80
+PKG_VERSION:=0.104
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://dbus.freedesktop.org/releases/dbus-glib/
-PKG_MD5SUM:=86ea60ba2118a1b9deafe8257f6a6a1a
+PKG_MD5SUM:=5497d2070709cf796f1878c75a72a039
 
 PKG_FIXUP:=autoreconf
 
@@ -45,8 +45,8 @@ CONFIGURE_VARS+= \
 	ac_cv_have_abstract_sockets="yes" \
 	CPPFLAGS="$$$$CPPFLAGS -I$(ICONV_PREFIX)/include" \
 	CPPFLAGS="$$$$CPPFLAGS -I$(INTL_PREFIX)/include" \
-	LDFLAGS="$$$$LDFLAGS -L$(ICONV_PREFIX)/lib" \
-	LDFLAGS="$$$$LDFLAGS -L$(INTL_PREFIX)/lib" \
+	LDFLAGS="$$$$LDFLAGS -L$(ICONV_PREFIX)/lib -Wl,-rpath-link=$(ICONV_PREFIX)/lib" \
+	LDFLAGS="$$$$LDFLAGS -L$(INTL_PREFIX)/lib -Wl,-rpath-link=$(INTL_PREFIX)/lib" \
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include/dbus-1.0/dbus
